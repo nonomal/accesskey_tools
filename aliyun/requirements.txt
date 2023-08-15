@@ -1,0 +1,3 @@
+python-aliyun-sdk-core
+python-aliyun-sdk-ecs
+PySocks
