@@ -1,2 +1,2 @@
-PySocks
-tencentcloud-python-sdk
+PySocks >= 1.7.1
+tencentcloud-python-sdk >= 3.0.959

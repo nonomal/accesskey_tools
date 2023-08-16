@@ -1,3 +1,5 @@
-python-aliyun-sdk-core
-python-aliyun-sdk-ecs
-PySocks
+python-aliyun-sdk-core >= 2.13.36
+python-aliyun-sdk-ecs >= 4.24.68
+python-aliyun-sdk-rds >= 2.7.43
+aliyun-oss2 >= 2.18.1
+PySocks >= 1.7.1

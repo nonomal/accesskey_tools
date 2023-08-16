@@ -2,7 +2,10 @@
 
 #### aliyun_ecs_exec.py
 用于查询阿里云各地区ecs实例的详细信息，并可指定ecs实例执行命令
-
+#### aliyun_getall_rds.py
+用于查询阿里云所有rds详细信息和其ip限制
+#### oss_download.py
+用于下载所有oss中的文件，也可指定bucket下载
 #### config.py
 代码运行所需的配置信息，包括accesskey、accesskeysecret、代理的ip和端口等参数
 
