@@ -16,19 +16,20 @@ import json, base64, random, socket, socks, config
 
 workqueue = queue.Queue()
 lock = threading.Lock()
-MAX_RETRIES = 10
-
 
 def root_directory_list(prefix, bucket, flag=True):
     MAX_RETRIES = 10
     retry_count = 0
     cos_dir = []
+    delimiter = ""
+    if flag == False:
+        delimiter = "/"
     while True:
         try:
             retry_count += 1
-            get_object_iter = oss2.ObjectIterator(bucket, prefix=prefix)
+            get_object_iter = oss2.ObjectIterator(bucket, prefix=prefix, delimiter=delimiter)
             for obj in get_object_iter:
-                if str(obj.key)[-1] == '/':
+                if obj.is_prefix():
                     cos_dir.append(str(obj.key))
                 elif flag:
                     workqueue.put(str(obj.key))
@@ -37,7 +38,6 @@ def root_directory_list(prefix, bucket, flag=True):
             if retry_count >= MAX_RETRIES:
                 raise
     return cos_dir
-
 
 def workqueue_get():
     while True:
@@ -55,7 +55,6 @@ def workqueue_get():
                 future_list = [executor.map(download_to_local, keys1)]
             break
 
-
 def download_to_local(object_name):
     url = "./" + name + "/" + object_name
     file_name = url[url.rindex("/") + 1:]
@@ -65,6 +64,7 @@ def download_to_local(object_name):
         os.makedirs(file_path_prefix)
     lock.release()
     if not os.path.exists(url):
+        MAX_RETRIES = 10
         retry_count = 0
         while True:
             try:
@@ -78,18 +78,22 @@ def download_to_local(object_name):
                 if retry_count >= MAX_RETRIES:
                     raise
 
-
 if __name__ == '__main__':
+    AccessKeyID = config.AccessKeyID
+    AccessKeySecret = config.AccessKeySecret
+    if not AccessKeyID:
+        AccessKeyID = input("请输入AccessKeyID:")
+    if not AccessKeySecret:
+        AccessKeySecret = input("请输入AccessKeySecret:")
+
     BucketName_all = {}
     auth = None
     try:
-        auth = oss2.Auth(config.AccessKeyID, config.AccessKeySecret)
+        auth = oss2.Auth(AccessKeyID, AccessKeySecret)
         service = oss2.Service(auth, 'https://oss-cn-shenzhen.aliyuncs.com')
         for b in oss2.BucketIterator(service):
             BucketName_all[b.name] = b.extranet_endpoint
-            print("Bucket名称：" + b.name,
-                  "Bucket创建时间：" + datetime.datetime.utcfromtimestamp(b.creation_date).strftime("%Y-%m-%d %H:%M:%S"),
-                  "外网域名：" + b.extranet_endpoint, "Bucket存储类型：" + b.storage_class)
+            print("Bucket名称：" + b.name, "Bucket创建时间：" + datetime.datetime.utcfromtimestamp(b.creation_date).strftime("%Y-%m-%d %H:%M:%S"), "外网域名：" + b.extranet_endpoint, "Bucket存储类型：" + b.storage_class)
     except oss2.exceptions.ServerError:
         print("AK或SK不正确，请输入正确的AKSK")
         exit(0)
@@ -105,7 +109,6 @@ if __name__ == '__main__':
             thread = threading.Thread(target=root_directory_list, args=("", bucket,))
             thread.start()
             workqueue_get()
-
     else:
         name = BucketName
         bucket = oss2.Bucket(auth, BucketName_all[BucketName], BucketName)
