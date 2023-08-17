@@ -2,7 +2,8 @@
 
 #### tencentcloud_cvm_exec.py
 用于查询腾讯云各地区cvm实例的详细信息，并可指定cvm实例执行命令
-
+#### tencentcloud_download_cos.py
+用于查询腾讯云各地区的cos存储实例，并对cos存储实例中的文件进行下载
 #### config.py
 代码运行所需的配置信息，包括accesskey、accesskeysecret、代理的ip和端口等参数
 
