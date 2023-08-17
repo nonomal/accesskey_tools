@@ -3,3 +3,8 @@
 
 # 免责声明
 该工具仅用于运维人员管理云上业务及安全测试，不得用于任何非法攻击。
+
+# TODO
+华为云huaweicloud accesskey相关功能
+aws accesskey相关功能
+七牛云qiniuyun accesskey相关功能
