@@ -95,10 +95,6 @@ def DescribeInvocationResults(AccessKeyID, AccessKeySecret, ZoneId, InvokeID):
 
 def DescribeInstances(AccessKeyID, AccessKeySecret):
     ecs_info = {}
-    if not AccessKeyID:
-        AccessKeyID = input("please input AccessKeyID:")
-    if not AccessKeySecret:
-        AccessKeySecret = input("please input AccessKeySecret:")
     for RegionId in config.RegionIds:
         print('searching -------' + RegionId)
         client = AcsClient(AccessKeyID, AccessKeySecret, RegionId)
@@ -155,7 +151,13 @@ def commad_check_input(AccessKeyID, AccessKeySecret, InstanceId, cmd, com_type, 
 
 
 if __name__ == '__main__':
-    ecs_info = DescribeInstances(config.AccessKeyID, config.AccessKeySecret)
+    AccessKeyID = config.AccessKeyID
+    AccessKeySecret = config.AccessKeySecret
+    if not AccessKeyID:
+        AccessKeyID = input("please input AccessKeyID:")
+    if not AccessKeySecret:
+        AccessKeySecret = input("please input AccessKeySecret:")
+    ecs_info = DescribeInstances(AccessKeyID, AccessKeySecret)
     if not ecs_info:
         print("no result")
         exit(0)
@@ -172,7 +174,7 @@ if __name__ == '__main__':
                              '2:RunPowerShellScript'
                              ':')
         cmd = ''
-        commad_check_input(config.AccessKeyID, config.AccessKeySecret, InstanceId, cmd, com_type, ecs_info)
+        commad_check_input(AccessKeyID, AccessKeySecret, InstanceId, cmd, com_type, ecs_info)
         flag = input("input q quit,other key continue:")
         if flag == 'q':
             break

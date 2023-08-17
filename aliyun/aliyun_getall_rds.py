@@ -52,5 +52,11 @@ def DescribeDBSecurityGroup(AccessKeyID, AccessKeySecret, DBInstanceId, RegionId
 
 
 if __name__ == '__main__':
-    result = DescribeDB(config.AccessKeyID, config.AccessKeySecret, config.RegionIds)
+    AccessKeyID = config.AccessKeyID
+    AccessKeySecret = config.AccessKeySecret
+    if not AccessKeyID:
+        AccessKeyID = input("please input AccessKeyID:")
+    if not AccessKeySecret:
+        AccessKeySecret = input("please input AccessKeySecret:")
+    result = DescribeDB(AccessKeyID, AccessKeySecret, config.RegionIds)
     print(result)
