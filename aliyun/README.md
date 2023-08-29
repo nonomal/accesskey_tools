@@ -2,6 +2,8 @@
 
 #### aliyun_ecs_exec.py
 用于查询阿里云各地区ecs实例的详细信息，并可指定ecs实例执行命令
+#### aliyun_ecs_exec_batch.py
+用于查询阿里云各地区ecs实例的详细信息，并可批量执行ecs实例命令
 #### aliyun_getall_rds.py
 用于查询阿里云所有rds详细信息和其ip限制
 #### oss_download.py
