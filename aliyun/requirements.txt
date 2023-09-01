@@ -1,5 +1,10 @@
 python-aliyun-sdk-core >= 2.13.36
 python-aliyun-sdk-ecs >= 4.24.68
 python-aliyun-sdk-rds >= 2.7.43
+alibabacloud-ecs20180317 >= 3.0.9
+alibabacloud-tea-openapi >= 0.3.7
+alibabacloud-vpc20180317 >= 5.0.1
+alibabacloud-darabonba-array >= 0.1.0
+alibabacloud-tea-util >= 0.3.11
 aliyun-oss2 >= 2.18.1
 PySocks >= 1.7.1
