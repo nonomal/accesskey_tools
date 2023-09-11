@@ -289,6 +289,9 @@ if __name__ == '__main__':
     # true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数、请求格式、业务限制和ECS库存。如果检查不通过，则返回对应错误。如果检查通过，则返回DryRunOperation错误。
     # false：发送正常请求，通过检查后直接创建实例。
     dry_run = False
+    if not access_key_id or not access_key_secret:
+        print("请在config.py中设置accesskeyID和accesskeysecret")
+        exit()
     try:
         Create_instances.main(access_key_id=config.AccessKeyID, access_key_secret=config.AccessKeySecret,
                               region_id=region_id, instance_type=instance_type, image_id=image_id,
