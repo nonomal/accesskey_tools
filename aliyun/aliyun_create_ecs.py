@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from typing import List
 from alibabacloud_tea_util.client import Client as UtilClient
-from alibabacloud_ecs20180317.client import Client as EcsClient
+from alibabacloud_ecs20140526.client import Client as EcsClient
 from alibabacloud_tea_openapi import models as open_api_models
-from alibabacloud_vpc20180317 import models as vpc_models
-from alibabacloud_vpc20180317.client import Client as VpcClient
-from alibabacloud_ecs20180317 import models as ecs_models
+from alibabacloud_vpc20160428 import models as vpc_models
+from alibabacloud_vpc20160428.client import Client as VpcClient
+from alibabacloud_ecs20140526 import models as ecs_models
 from alibabacloud_darabonba_array.client import Client as ArrayClient
 
 import config
