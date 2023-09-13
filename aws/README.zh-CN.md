@@ -1,3 +1,4 @@
+[简体中文](README.zh-CN.md)|[English](README.md)
 # 文件说明
 ## aws_download_s3.py
 用于查询aws各个地区的s3存储桶的详情信息，可下载所有存储桶的文件，也可指定存储桶以及文件夹。
