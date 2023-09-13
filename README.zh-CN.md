@@ -5,7 +5,10 @@
 [accesskey_tools：一款针对云环境的多功能利用脚本工具](https://blog.csdn.net/saygoodbyeyo/article/details/132347160)
   
 
-[accesskey_tools阿里云运维工具：自动化运维的利器](https://www.freebuf.com/sectool/377068.html)
+[accesskey_tools: 阿里云运维工具：自动化运维的利器](https://www.freebuf.com/sectool/377068.html)
+
+[accesskey_tools: aws accesskey利用工具](https://www.freebuf.com/sectool/377988.html)
+
 # 免责声明
 该工具仅用于运维人员管理云上业务及安全测试，不得用于任何非法攻击。
 
