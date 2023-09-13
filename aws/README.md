@@ -26,6 +26,9 @@ The socks proxy is provided in the code. When you need to use it, fill in the ip
 
 # tools usage
 `git clone https://github.com/kohlersbtuh15/accesskey_tools`
+
 `cd aws`
+
 `pip3 install -r requirements.txt`
+
 `python3 aws_ec2_exec.py`
