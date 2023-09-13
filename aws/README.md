@@ -25,7 +25,7 @@ To install the required dependencies before use, run `pip install -r requirement
 The socks proxy is provided in the code. When you need to use it, fill in the ip and port values ​​​​in config.py, and then remove the corresponding comment part in the code.
 
 # tools usage
-`git clone https://github.com/kohlersbtuh15/accesskey_tools
-cd aws
-pip3 install -r requirements.txt
-python3 aws_ec2_exec.py`
+`git clone https://github.com/kohlersbtuh15/accesskey_tools`
+`cd aws`
+`pip3 install -r requirements.txt`
+`python3 aws_ec2_exec.py`
