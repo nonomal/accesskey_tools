@@ -1,3 +1,4 @@
+[简体中文](README.zh-CN.md)|[English](README.md)
 # File description
 ## aws_download_s3.py
 Used to query the detailed information of S3 buckets in various AWS regions. You can download the files of all buckets, and you can also specify buckets and folders.
