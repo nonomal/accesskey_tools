@@ -1,20 +1,20 @@
-## 文件说明
+## File description
 
 #### aliyun_ecs_exec.py
-用于查询阿里云各地区ecs实例的详细信息，并可指定ecs实例执行命令
+Used to query the detailed information of ecs instances in various regions of Alibaba Cloud and specify the ecs instance to execute commands.
 #### aliyun_ecs_exec_batch.py
-用于查询阿里云各地区ecs实例的详细信息，并可批量执行ecs实例命令
+Used to query the detailed information of ecs instances in various regions of Alibaba Cloud and execute ecs instance commands in batches
 #### aliyun_create_ecs.py
-用于批量创建阿里云实例
+Used to create Alibaba Cloud instances in batches
 #### aliyun_getall_rds.py
-用于查询阿里云所有rds详细信息和其ip限制
+Used to query all Alibaba Cloud RDS details and their IP restrictions
 #### oss_download.py
-用于下载所有oss中的文件，也可指定bucket下载
+Used to download all files in oss, and can also specify a bucket for download.
 #### config.py
-代码运行所需的配置信息，包括accesskey、accesskeysecret、代理的ip和端口等参数
+Configuration information required to run the code, including accesskey, accesskeysecret, proxy IP and port and other parameters
 
-## 使用说明
-使用前安装所需的依赖，运行pip install -r requirements.txt即可，填好config.py中对应的值，直接运行对应的py脚本，按照提示输入对应的值
+## Instructions for use
+To install the required dependencies before use, run `pip install -r requirements.txt`, fill in the corresponding values ​​​​in config.py, run the corresponding py script directly, and enter the corresponding values ​​​​as prompted.
 
-## 代理
-代码中提供了socks代理，需要使用时在config.py中填好ip和port值，然后去掉代码中对应的注释部分即可
+## proxy
+The socks proxy is provided in the code. When you need to use it, fill in the ip and port values ​​​​in config.py, and then remove the corresponding comment part in the code.
